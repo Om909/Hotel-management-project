@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard - UrbanStay</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="admin-body">
+  <header class="top-bar">
+    <div class="logo">UrbanStay Admin</div>
+    <nav>
+      <a href="index.html">Back to Site</a>
+      <button id="theme-toggle" class="theme-btn">🌙</button>
+      <select id="color-theme" class="theme-select">
+        <option value="default">Default</option>
+        <option value="pink">Pink</option>
+        <option value="blue">Blue</option>
+        <option value="green">Green</option>
+      </select>
+      <button id="logout-btn" class="btn small secondary">Logout</button>
+    </nav>
+  </header>
+
+  <main class="admin-main">
+    <section id="login-section" class="admin-card reveal">
+      <h2>Admin Login (Email OTP)</h2>
+      <form id="admin-login-form">
+        <div class="form-group">
+          <label for="admin-email">Admin Email</label>
+          <input type="email" id="admin-email" required />
+        </div>
+
+        <div class="form-group">
+          <label for="admin-otp">OTP</label>
+          <input type="text" id="admin-otp" placeholder="Enter OTP" />
+        </div>
+
+        <div class="form-group" style="display:flex; gap:0.5rem;">
+          <button type="button" id="send-otp-btn" class="btn secondary full-width">
+            Send OTP
+          </button>
+          <button type="submit" class="btn primary full-width">
+            Login with OTP
+          </button>
+        </div>
+      </form>
+      <p class="form-status" id="admin-login-status"></p>
+    </section>
+
+    <section id="dashboard-section" class="admin-card hidden reveal">
+      <div class="admin-header-row">
+        <h2>All Bookings</h2>
+        <button id="refresh-btn" class="btn secondary small">Refresh</button>
+      </div>
+      <div class="table-wrapper">
+        <table class="booking-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Date</th>
+              <th>Room</th>
+              <th>Created</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="booking-rows">
+          </tbody>
+        </table>
+      </div>
+      <p class="form-status" id="admin-status"></p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2025 UrbanStay Hotel Admin.</p>
+  </footer>
+
+  <script src="admin.js"></script>
+</body>
+
+</html>

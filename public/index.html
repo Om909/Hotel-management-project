@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UrbanStay Hotel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="top-bar">
+    <div class="logo">UrbanStay</div>
+    <nav>
+      <a href="#rooms">Rooms</a>
+      <a href="#booking">Book Now</a>
+      <a href="admin.html" class="admin-link">Admin</a>
+      <button id="theme-toggle" class="theme-btn">🌙</button>
+      <select id="color-theme" class="theme-select">
+        <option value="default">Default</option>
+        <option value="pink">Pink</option>
+        <option value="blue">Blue</option>
+        <option value="green">Green</option>
+      </select>
+    </nav>
+  </header>
+
+  <section class="hero reveal">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-tag">
+        <span>NEW</span> · Boutique stay in the heart of the city
+      </div>
+      <h1>Your Boutique Escape in the City</h1>
+      <p>Cozy rooms, warm lighting, and a view you'll remember.</p>
+      <a href="#booking" class="btn primary">Book Your Stay</a>
+    </div>
+  </section>
+
+  <section id="rooms" class="rooms-section">
+    <h2>Our Rooms</h2>
+    <p class="section-subtitle">
+      Pick from our hand-curated rooms designed for solo travelers, families, and luxury lovers.
+    </p>
+    <div class="room-grid">
+      <article class="room-card reveal">
+        <img src="room.webp" alt="Single Room" />
+        <div class="room-info">
+          <h3>Single Room</h3>
+          <p>Perfect for solo travelers. Compact, comfy, and quiet.</p>
+          <div class="room-meta">
+            <span class="chip">Sleeps 1</span>
+            <span class="chip">Cozy Corner</span>
+          </div>
+        </div>
+      </article>
+      <article class="room-card reveal">
+        <img src="hotel.webp" alt="Family Room" />
+        <div class="room-info">
+          <h3>Family Room</h3>
+          <p>Spacious room with seating area for your whole crew.</p>
+          <div class="room-meta">
+            <span class="chip">Sleeps 4</span>
+            <span class="chip">Lounge Area</span>
+          </div>
+        </div>
+      </article>
+      <article class="room-card reveal">
+        <img src="room.webp" alt="Duplex Room" />
+        <div class="room-info">
+          <h3>Duplex Room</h3>
+          <p>Two-level luxury with city views and lounge space.</p>
+          <div class="room-meta">
+            <span class="chip">Sleeps 2</span>
+            <span class="chip">City View</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="booking" class="booking-section">
+    <div class="booking-card reveal">
+      <h2>Book Your Stay</h2>
+      <p class="small-subtitle">Share your details and we’ll confirm your reservation.</p>
+      <form id="booking-form">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" placeholder="Enter your full name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="you@example.com" required />
+        </div>
+        <div class="form-group">
+          <label for="booking-date">Check-in Date</label>
+          <input type="date" id="booking-date" required />
+        </div>
+        <div class="form-group">
+          <label for="room-type">Room Type</label>
+          <select id="room-type" required>
+            <option value="single room">Single Room</option>
+            <option value="family room">Family Room</option>
+            <option value="duplex room">Duplex Room</option>
+          </select>
+        </div>
+        <button type="submit" class="btn primary full-width">Confirm Booking</button>
+      </form>
+      <p class="form-status" id="booking-status"></p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2025 UrbanStay Hotel. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

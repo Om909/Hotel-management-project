@@ -1,0 +1,592 @@
+/* ---------- Global Reset ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---------- Base ---------- */
+:root {
+  --bg-main: #050816;
+  --bg-card: rgba(13, 23, 43, 0.92);
+  --bg-soft: rgba(9, 13, 24, 0.96);
+  --accent: #ff8a5c;
+  --accent-2: #ff5f91;
+  --accent-soft: rgba(255, 138, 92, 0.15);
+  --text-main: #f8f8ff;
+  --text-muted: #b4b7c9;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --shadow-soft: 0 24px 60px rgba(0, 0, 0, 0.75);
+  --radius-lg: 1.4rem;
+  --radius-md: 1rem;
+  --radius-pill: 999px;
+  --transition-fast: 0.18s ease-out;
+  --transition-med: 0.25s ease-out;
+}
+
+/* ---------- Light Theme Variables ---------- */
+.light-mode {
+  --bg-main: #f4f4f9;
+  --bg-card: #ffffff;
+  --bg-soft: #ffffff;
+  --accent-soft: rgba(255, 138, 92, 0.1);
+  --text-main: #1a1a1a;
+  --text-muted: #555555;
+  --border-subtle: rgba(0, 0, 0, 0.08);
+  --shadow-soft: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Color themes */
+.pink-theme {
+  --accent: #ff5fa2;
+  --accent-2: #ff3d7f;
+}
+
+.blue-theme {
+  --accent: #4da3ff;
+  --accent-2: #1f7aff;
+}
+
+.green-theme {
+  --accent: #4cff7a;
+  --accent-2: #31d85a;
+}
+
+body {
+  font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background: radial-gradient(circle at top, #1b2751 0%, #050816 50%, #02030a 100%);
+  color: var(--text-main);
+  min-height: 100vh;
+}
+
+/* ---------- Top Bar ---------- */
+.top-bar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.9rem 3rem;
+  background: linear-gradient(
+    to right,
+    rgba(3, 7, 18, 0.94),
+    rgba(10, 17, 40, 0.96)
+  );
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo::before {
+  content: "🏨";
+  font-size: 1.2rem;
+}
+
+.top-bar nav {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.top-bar nav a,
+.top-bar nav button {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid transparent;
+  transition: var(--transition-fast);
+}
+
+.top-bar nav a:hover {
+  color: var(--text-main);
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.admin-link {
+  border-color: rgba(255, 255, 255, 0.25);
+  font-size: 0.8rem;
+}
+
+/* ---------- Theme Controls ---------- */
+.theme-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.25s ease;
+  color: var(--text-main);
+}
+
+.theme-btn:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.theme-select {
+  padding: 0.35rem 0.7rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--text-main);
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+/* ---------- Hero Section ---------- */
+.hero {
+  position: relative;
+  height: 80vh;
+  background: url("hotel.webp") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at top, rgba(255, 138, 92, 0.18), transparent 50%),
+    linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(5, 8, 22, 0.98));
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 15%;
+  border-radius: 30%;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  filter: blur(18px);
+  opacity: 0.4;
+}
+
+.hero-content {
+  position: relative;
+  text-align: center;
+  max-width: 720px;
+  padding: 1.5rem;
+}
+
+.hero-content h1 {
+  font-size: 2.8rem;
+  margin-bottom: 0.9rem;
+  letter-spacing: 0.04em;
+}
+
+.hero-content p {
+  font-size: 1rem;
+  margin-bottom: 1.7rem;
+  color: #ece9ff;
+  opacity: 0.9;
+}
+
+.hero-content .hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.9rem;
+  border-radius: var(--radius-pill);
+  background: rgba(5, 8, 22, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.9rem;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-pill);
+  padding: 0.8rem 1.8rem;
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  white-space: nowrap;
+  transition: var(--transition-med);
+  font-weight: 500;
+}
+
+.btn.primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #fff;
+  box-shadow: 0 16px 35px rgba(255, 123, 102, 0.45);
+}
+
+.btn.primary:hover {
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 22px 45px rgba(255, 123, 102, 0.65);
+}
+
+.btn.secondary {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: var(--text-main);
+}
+
+.btn.secondary:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.btn.small {
+  padding: 0.45rem 1rem;
+  font-size: 0.8rem;
+}
+
+.btn.full-width {
+  width: 100%;
+}
+
+/* ---------- Sections Base ---------- */
+.rooms-section,
+.booking-section,
+.admin-main {
+  padding: 3rem 3rem 2.5rem;
+}
+
+/* ---------- Rooms Section ---------- */
+.rooms-section {
+  background: radial-gradient(circle at top left, #22284c 0%, #050816 60%);
+}
+
+.rooms-section h2 {
+  font-size: 1.9rem;
+  margin-bottom: 0.4rem;
+}
+
+.rooms-section p.section-subtitle {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 1.7rem;
+}
+
+.room-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.6rem;
+}
+
+.room-card {
+  background: linear-gradient(
+    145deg,
+    rgba(12, 19, 36, 0.98),
+    rgba(9, 13, 24, 0.98)
+  );
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: var(--shadow-soft);
+  transform: translateY(0) scale(1);
+  transition: transform 0.22s ease-out, box-shadow 0.22s ease-out,
+    border-color 0.22s ease-out;
+  position: relative;
+}
+
+.room-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at top right,
+    rgba(255, 138, 92, 0.18),
+    transparent 55%
+  );
+  opacity: 0;
+  transition: opacity 0.25s ease-out;
+}
+
+.room-card:hover {
+  transform: translateY(-6px) scale(1.01);
+  border-color: rgba(255, 255, 255, 0.16);
+  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.85);
+}
+
+.room-card:hover::before {
+  opacity: 1;
+}
+
+.room-card img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+}
+
+.room-info {
+  padding: 1rem 1.3rem 1.2rem;
+}
+
+.room-info h3 {
+  font-size: 1.15rem;
+  margin-bottom: 0.25rem;
+}
+
+.room-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.6rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.15rem 0.7rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  font-size: 0.72rem;
+}
+
+/* ---------- Booking Section ---------- */
+.booking-section {
+  background: linear-gradient(180deg, #050816, #050816 60%, #020108 100%);
+  display: flex;
+  justify-content: center;
+}
+
+.booking-card {
+  width: 100%;
+  max-width: 440px;
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  padding: 2rem 2.1rem;
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-soft);
+  position: relative;
+  overflow: hidden;
+}
+
+.booking-card::before {
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--accent-soft), transparent);
+  top: -40px;
+  right: -40px;
+  opacity: 0.7;
+}
+
+.booking-card h2 {
+  margin-bottom: 0.2rem;
+}
+
+.booking-card .small-subtitle {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 1.4rem;
+}
+
+/* ---------- Forms ---------- */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  font-size: 0.86rem;
+  margin-bottom: 0.25rem;
+  color: #e2e2ff;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 0.65rem 0.8rem;
+  border-radius: 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(4, 7, 16, 0.96);
+  color: var(--text-main);
+  font-size: 0.88rem;
+  outline: none;
+  transition: border-color var(--transition-fast),
+    box-shadow var(--transition-fast), background 0.15s ease-out;
+}
+
+input::placeholder {
+  color: rgba(180, 183, 201, 0.7);
+}
+
+input:focus,
+select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px rgba(255, 138, 92, 0.4);
+  background: rgba(5, 9, 20, 0.98);
+}
+
+.form-status {
+  margin-top: 0.8rem;
+  font-size: 0.82rem;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  padding: 1rem 3rem 1.4rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(1, 2, 8, 0.95);
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* ---------- Admin Layout ---------- */
+.admin-body {
+  background: radial-gradient(circle at top, #212844 0%, #050816 60%);
+}
+
+.admin-main {
+  padding: 2.2rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.admin-card {
+  background: var(--bg-soft);
+  border-radius: var(--radius-lg);
+  padding: 1.7rem 1.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: var(--shadow-soft);
+}
+
+.admin-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+/* ---------- Admin Table ---------- */
+.table-wrapper {
+  overflow-x: auto;
+  margin-top: 0.5rem;
+}
+
+.booking-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+}
+
+.booking-table th,
+.booking-table td {
+  padding: 0.55rem 0.6rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.booking-table th {
+  text-align: left;
+  font-weight: 600;
+  color: #e6e6ff;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.booking-table tr:last-child td {
+  border-bottom: none;
+}
+
+.badge {
+  display: inline-flex;
+  padding: 0.1rem 0.55rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-size: 0.7rem;
+}
+
+/* ---------- Scroll Reveal Animations ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.7s ease-out;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Utility ---------- */
+.hidden {
+  display: none !important;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .top-bar {
+    padding: 0.8rem 1.4rem;
+  }
+
+  .top-bar nav {
+    gap: 0.4rem;
+  }
+
+  .rooms-section,
+  .booking-section,
+  .admin-main {
+    padding: 2rem 1.4rem;
+  }
+
+  .hero {
+    height: 65vh;
+  }
+
+  .hero-content h1 {
+    font-size: 2.1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .top-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+
+  .logo {
+    font-size: 1.3rem;
+  }
+
+  .hero-content {
+    padding: 1rem;
+  }
+
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-content p {
+    font-size: 0.9rem;
+  }
+
+  .booking-card {
+    padding: 1.5rem 1.3rem;
+  }
+}
